@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="robots"
+    content="noindex,nofollow"
+  >
+
+  <title>
+    Merci pour ta participation • Concours Dubaï
+  </title>
+
+  <style>
+
+    :root {
+      font-family: Inter, Arial, sans-serif;
+      color: #f6f3ec;
+      background: #050505;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 30px 20px;
+
+      color: #fff;
+
+      background:
+        radial-gradient(
+          circle at 50% 10%,
+          #30240c 0,
+          #0b0b0b 30%,
+          #050505 72%
+        );
+    }
+
+
+    /* ================================================
+       PAGE
+       ================================================ */
+
+    .page {
+      width: min(780px, 100%);
+
+      text-align: center;
+    }
+
+
+    /* ================================================
+       CARD
+       ================================================ */
+
+    .card {
+      position: relative;
+
+      overflow: hidden;
+
+      padding:
+        40px 45px 50px;
+
+      background:
+        radial-gradient(
+          circle at 50% 0,
+          rgba(233, 185, 77, .12),
+          transparent 50%
+        ),
+        #0d0d0d;
+
+      border:
+        1px solid #49391d;
+
+      box-shadow:
+        0 30px 80px
+        rgba(0, 0, 0, .55);
+    }
+
+    .card::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+      right: 0;
+
+      height: 2px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          #e9b94d,
+          transparent
+        );
+    }
+
+
+    /* ================================================
+       IMAGE DUBAÏ
+       ================================================ */
+
+    .merci-visual {
+      position: relative;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin:
+        -5px auto 18px;
+    }
+
+    .merci-visual::before {
+      content: "";
+
+      position: absolute;
+
+      width: 270px;
+      height: 270px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(226, 173, 62, .16),
+          transparent 70%
+        );
+
+      filter:
+        blur(12px);
+
+      pointer-events: none;
+    }
+
+    .merci-image {
+      position: relative;
+
+      display: block;
+
+      width:
+        min(310px, 75vw);
+
+      height: auto;
+
+      object-fit: contain;
+
+      filter:
+        drop-shadow(
+          0 18px 35px
+          rgba(0, 0, 0, .7)
+        );
+    }
+
+
+    /* ================================================
+       TITRES
+       ================================================ */
+
+    .eyebrow {
+      margin-bottom:
+        14px;
+
+      color:
+        #e7b84a;
+
+      font-size:
+        .72rem;
+
+      font-weight:
+        800;
+
+      letter-spacing:
+        .2em;
+    }
+
+    h1 {
+      max-width:
+        650px;
+
+      margin:
+        0 auto 20px;
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(
+          2.4rem,
+          7vw,
+          4.7rem
+        );
+
+      line-height:
+        .95;
+
+      color:
+        #fff;
+    }
+
+    h1 span {
+      color:
+        #e9b94d;
+    }
+
+    .description {
+      max-width:
+        590px;
+
+      margin:
+        0 auto;
+
+      color:
+        #bdb8ae;
+
+      font-size:
+        1rem;
+
+      line-height:
+        1.7;
+    }
+
+
+    /* ================================================
+       STATUT DU PAIEMENT
+       ================================================ */
+
+    .status {
+      max-width:
+        570px;
+
+      margin:
+        32px auto 0;
+
+      padding:
+        18px 20px;
+
+      border:
+        1px solid #3d321e;
+
+      background:
+        #080808;
+
+      color:
+        #c8c2b6;
+
+      line-height:
+        1.5;
+    }
+
+    .status.loading {
+      color:
+        #d8c38c;
+    }
+
+    .status.success {
+      border-color:
+        #a9822d;
+
+      background:
+        rgba(34, 27, 11, .65);
+
+      color:
+        #f6df9b;
+    }
+
+    .status.warning {
+      border-color:
+        #594929;
+
+      color:
+        #c7b98e;
+    }
+
+
+    /* ================================================
+       SPINNER
+       ================================================ */
+
+    .spinner {
+      width: 18px;
+      height: 18px;
+
+      display:
+        inline-block;
+
+      margin-right:
+        9px;
+
+      vertical-align:
+        -4px;
+
+      border:
+        2px solid #554728;
+
+      border-top-color:
+        #e9b94d;
+
+      border-radius:
+        50%;
+
+      animation:
+        spin .8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform:
+          rotate(360deg);
+      }
+    }
+
+
+    /* ================================================
+       CONFIRMATION
+       ================================================ */
+
+    .details {
+      display:
+        none;
+
+      max-width:
+        570px;
+
+      margin:
+        24px auto 0;
+
+      padding-top:
+        24px;
+
+      border-top:
+        1px solid #282216;
+    }
+
+    .details.visible {
+      display:
+        block;
+    }
+
+    .details strong {
+      display:
+        block;
+
+      margin-bottom:
+        8px;
+
+      color:
+        #e9b94d;
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-size:
+        1.35rem;
+    }
+
+    .details p {
+      margin: 0;
+
+      color:
+        #999;
+
+      font-size:
+        .9rem;
+
+      line-height:
+        1.65;
+    }
+
+
+    /* ================================================
+       BOUTON
+       ================================================ */
+
+    .button {
+      display:
+        inline-block;
+
+      margin-top:
+        32px;
+
+      padding:
+        16px 26px;
+
+      border:
+        1px solid #e8b947;
+
+      background:
+        linear-gradient(
+          180deg,
+          #f2ca64,
+          #bd8120
+        );
+
+      color:
+        #090909;
+
+      text-decoration:
+        none;
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        .04em;
+
+      transition:
+        filter .2s ease,
+        transform .2s ease;
+    }
+
+    .button:hover {
+      filter:
+        brightness(1.08);
+    }
+
+    .button:active {
+      transform:
+        translateY(1px);
+    }
+
+
+    /* ================================================
+       DATE DU TIRAGE
+       ================================================ */
+
+    .draw {
+      margin-top:
+        28px;
+
+      color:
+        #777;
+
+      font-size:
+        .82rem;
+
+      line-height:
+        1.6;
+    }
+
+    .draw strong {
+      color:
+        #ba984b;
+    }
+
+
+    /* ================================================
+       MOBILE
+       ================================================ */
+
+    @media (max-width: 600px) {
+
+      body {
+        padding:
+          14px;
+      }
+
+      .card {
+        padding:
+          28px 17px 38px;
+      }
+
+      .merci-visual {
+        margin-bottom:
+          14px;
+      }
+
+      .merci-visual::before {
+        width:
+          220px;
+
+        height:
+          220px;
+      }
+
+      .merci-image {
+        width:
+          min(250px, 72vw);
+      }
+
+      .eyebrow {
+        font-size:
+          .62rem;
+
+        letter-spacing:
+          .15em;
+      }
+
+      h1 {
+        font-size:
+          clamp(
+            2.1rem,
+            11vw,
+            3.3rem
+          );
+      }
+
+      .description {
+        font-size:
+          .93rem;
+      }
+
+      .status {
+        padding:
+          16px 12px;
+
+        font-size:
+          .9rem;
+      }
+
+      .button {
+        width:
+          100%;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <main class="page">
+
+    <section class="card">
+
+
+      <!-- IMAGE DUBAÏ -->
+
+      <div class="merci-visual">
+
+        <img
+          src="/merci.png"
+          alt="Concours Dubaï - Billet d'avion"
+          class="merci-image"
+        >
+
+      </div>
+
+
+      <!-- TITRE -->
+
+      <div class="eyebrow">
+        CONCOURS DUBAÏ
+      </div>
+
+      <h1>
+        MERCI POUR TA
+        <span>PARTICIPATION</span>
+      </h1>
+
+
+      <p class="description">
+
+        Ton paiement a bien été transmis à Stripe.
+
+        Nous vérifions maintenant automatiquement
+        la confirmation du paiement afin de valider
+        définitivement ta participation au tirage
+        au sort.
+
+      </p>
+
+
+      <!-- STATUT -->
+
+      <div
+        id="paymentStatus"
+        class="status loading"
+        role="status"
+        aria-live="polite"
+      >
+
+        <span class="spinner"></span>
+
+        Confirmation de ta participation en cours…
+
+      </div>
+
+
+      <!-- PARTICIPATION CONFIRMÉE -->
+
+      <div
+        id="confirmedDetails"
+        class="details"
+      >
+
+        <strong id="participantName">
+          Participation validée !
+        </strong>
+
+        <p>
+
+          Ton paiement a été confirmé et ta
+          participation au concours est maintenant
+          enregistrée.
+
+          <br><br>
+
+          Le gagnant sera contacté après le tirage
+          au sort.
+
+        </p>
+
+      </div>
+
+
+      <!-- RETOUR -->
+
+      <a
+        href="/"
+        class="button"
+      >
+        RETOUR À L'ACCUEIL
+      </a>
+
+
+      <!-- DATE -->
+
+      <div class="draw">
+
+        Tirage au sort prévu le
+
+        <strong>
+          31 décembre 2026
+        </strong>.
+
+        <br>
+
+        Bonne chance !
+
+      </div>
+
+
+    </section>
+
+  </main>
+
+
+  <script>
+
+    const statusElement =
+      document.getElementById(
+        'paymentStatus'
+      )
+
+    const detailsElement =
+      document.getElementById(
+        'confirmedDetails'
+      )
+
+    const participantName =
+      document.getElementById(
+        'participantName'
+      )
+
+
+    function sleep(ms) {
+
+      return new Promise(
+        resolve =>
+          setTimeout(resolve, ms)
+      )
+
+    }
+
+
+    async function verifyPayment() {
+
+      const params =
+        new URLSearchParams(
+          window.location.search
+        )
+
+      const sessionId =
+        params.get(
+          'session_id'
+        )
+
+
+      /*
+       * Pas de session Stripe dans l'URL
+       */
+
+      if (!sessionId) {
+
+        statusElement.className =
+          'status warning'
+
+        statusElement.innerHTML =
+          'Impossible de vérifier automatiquement le paiement.'
+
+        return
+
+      }
+
+
+      /*
+       * Stripe peut rediriger le client légèrement
+       * avant que le webhook soit arrivé.
+       *
+       * On vérifie donc le serveur plusieurs fois.
+       */
+
+      for (
+        let attempt = 0;
+        attempt < 20;
+        attempt++
+      ) {
+
+        try {
+
+          const response =
+            await fetch(
+
+              '/api/payment-status?session_id=' +
+              encodeURIComponent(
+                sessionId
+              ),
+
+              {
+                cache:
+                  'no-store'
+              }
+
+            )
+
+
+          if (response.ok) {
+
+            const data =
+              await response.json()
+
+
+            if (data.paid) {
+
+              statusElement.className =
+                'status success'
+
+
+              statusElement.innerHTML =
+                '✓ Paiement confirmé — participation validée.'
+
+
+              if (data.firstName) {
+
+                participantName.textContent =
+                  'Merci ' +
+                  data.firstName +
+                  ' !'
+
+              }
+
+
+              detailsElement
+                .classList
+                .add(
+                  'visible'
+                )
+
+
+              /*
+               * On retire le session_id Stripe
+               * de l'adresse après validation.
+               */
+
+              window.history.replaceState(
+                {},
+                document.title,
+                '/merci.html'
+              )
+
+
+              return
+
+            }
+
+          }
+
+        } catch (error) {
+
+          console.error(
+            'Erreur vérification paiement:',
+            error
+          )
+
+        }
+
+
+        /*
+         * Attente de 1,5 seconde avant
+         * la prochaine vérification.
+         */
+
+        await sleep(
+          1500
+        )
+
+      }
+
+
+      /*
+       * Si le webhook met trop longtemps,
+       * on ne dit PAS que le paiement a échoué.
+       */
+
+      statusElement.className =
+        'status warning'
+
+
+      statusElement.innerHTML =
+        'Paiement reçu. La validation de ta participation est encore en cours.'
+
+
+      detailsElement
+        .classList
+        .add(
+          'visible'
+        )
+
+
+      participantName.textContent =
+        'Validation en cours'
+
+    }
+
+
+    verifyPayment()
+
+  </script>
+
+</body>
+
+</html>
